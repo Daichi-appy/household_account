@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'db_helper.dart';
 import 'models/expense.dart';
-import 'expense_form_screen.dart'; // この行を追加
+import 'expense_form_screen.dart';
+import 'calendar_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -61,6 +62,17 @@ class _ExpenseListScreenState extends State<ExpenseListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('家計簿'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.calendar_today),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CalendarPage()),
+              );
+            },
+          ),
+        ],
       ),
       body: Column(
         children: [
